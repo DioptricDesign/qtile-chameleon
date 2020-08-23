@@ -67,6 +67,7 @@ keys = [
     Key([mod], "q", lazy.window.kill()),
     Key ([], "F10", lazy.group['scratchpad'].dropdown_toggle('term')),
     #Application Hotkeys
+    Key([mod], "space", lazy.spawn("scrot")),
     Key([mod], "w", lazy.spawn("firefox")),
     Key([mod], "e", lazy.spawn("emacs")),
     Key([mod], "r", lazy.spawn("liferea")),
@@ -80,12 +81,12 @@ keys = [
     Key([mod], "f", lazy.spawn("urxvt -e ranger")),
     Key([mod], "d", lazy.spawn("discord")),
     #Audio and Media
-    Key(["mod1"], 'F1', lazy.spawn('pulseaudio-ctl down 5')),
-    Key(["mod1"], 'F2', lazy.spawn('pulseaudio-ctl up 5')),
-    Key(["mod1"], 'F3', lazy.spawn("amixer -q set Master toggle")),
-    Key(["mod1"], 'F4', lazy.spawn("playerctl previous")),
-    Key(["mod1"], 'F5', lazy.spawn("playerctl next")),
-    Key(["mod1"], 'F6', lazy.spawn("playerctl play-pause")),
+    Key(["mod1"], '1', lazy.spawn('pulseaudio-ctl down 5')),
+    Key(["mod1"], '2', lazy.spawn('pulseaudio-ctl up 5')),
+    Key(["mod1"], '3', lazy.spawn("amixer -q set Master toggle")),
+    Key(["mod1"], '4', lazy.spawn("playerctl previous")),
+    Key(["mod1"], '5', lazy.spawn("playerctl next")),
+    Key(["mod1"], '6', lazy.spawn("playerctl play-pause")),
     #Launcher & App Switcher
     Key(["mod1"], "d", lazy.spawn("dmen")),
     Key(["mod1"], "r", lazy.spawn("rofi -show run -modi run,window -show-icons -sidebar-mode")),
@@ -105,6 +106,7 @@ keys = [
     Key(["mod1", "control"], "k", lazy.spawn ("calendarmenu")),
     Key(["mod1", "control"], "o", lazy.spawn ("outputmenu")),
     Key(["mod1", "control"], "m", lazy.spawn ("chatmenu")),
+    Key(["mod1", "control"], "t", lazy.spawn ("timermenu")),
     Key(["mod1", "control"], "v", lazy.spawn ("virtualmenu")),
     Key(["mod1", "control"], "x", lazy.spawn ("graphicsmenu"))
 ]
@@ -161,9 +163,10 @@ floating_layout = layout.Floating(
     {'wmclass': 'splash'},
     {'wmclass': 'steam'},
     {'wmclass': 'toolbar'},
+    {'wmclass': 'vlc'},
     {'wmclass': 'gcolor3'},
     {'wmclass': 'qalculate-gtk'},
-    {'wname': 'pinentry'},  # GPG key password entry
+    {'wname': 'pinentry'},
     {'wmclass': 'ssh-askpass'}
 ])
 #Bar
@@ -189,7 +192,7 @@ screens = [ Screen( top=bar.Bar( [
                    fontsize=20,
                    padding=0,
                    foreground=ColorA),
-    widget.WindowName(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('rofi -show run')},
+    widget.WindowName(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('dmen')},
                       foreground=ColorG,
                       background=ColorB,
                       padding=10),
@@ -237,10 +240,12 @@ screens = [ Screen( top=bar.Bar( [
     widget.Clock(format='%a %m-%d-%Y',
                  background=ColorA,
                  foreground=ColorG),
-    widget.TextBox(text='',
+    widget.TextBox(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('timermenu')},
+                   text='',
                    background=ColorA,
                    foreground=ColorG),
-    widget.Clock(format='%I:%M %p',
+    widget.Clock(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('urxvt -e peaclock')},
+                 format='%I:%M %p',
                  background=ColorA,
                  foreground=ColorG,
                  padding=5),
