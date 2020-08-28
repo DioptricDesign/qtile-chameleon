@@ -10,4 +10,4 @@ This config should be used with the [scripts](https://github.com/DioptricDesign/
 `mkdir ~/.config/qtile/`\
 `cp /Qtile-Config/* ~/.config/qtile/`
 ## Special Thanks
-Many ideas for this configuration were taken from existing configurations in the Qtile examples [repo](https://github.com/qtile/qtile-examples) and Derek Taylor's [Qtile config](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile). 
+Many ideas for this configuration were taken from existing configurations in the [Qtile examples repo](https://github.com/qtile/qtile-examples) and Derek Taylor's [Qtile config](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile). 
