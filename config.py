@@ -7,7 +7,7 @@
 #                                                __/ |
 #                                               |___/
 #This configuration is Feature Rich and comfortable. Inteded to be used modularly in many systems.
-#It depends on rofi, i3-lock, scrot, Font Awesome, pywal, dunst, redshift, polkit-gnome, compton and playerctl, For utilities and libraries.
+#It depends on rofi, urxvt i3-lock, scrot, Font Awesome, pywal, dunst, redshift, polkit-gnome, compton and playerctl, For utilities and libraries.
 from libqtile.config import Key, Screen, Group, Drag, Click, DropDown, ScratchPad
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
