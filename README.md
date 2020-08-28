@@ -5,6 +5,6 @@ This config should be used with the [scripts](https://github.com/DioptricDesign/
 ## Screenshot
 ![qtile config](screens/2020-08-23-131058_1920x1080_scrot.png)
 ## Install
-`git clone https://github.com/DioptricDesign/Qtile-Config.git`
-`mkdir ~/.config/qtile/`
-`cp /Qtile-Config/* ~/.config/qtile/`
+`git clone https://github.com/DioptricDesign/Qtile-Config.git`\
+`mkdir ~/.config/qtile/`\
+`cp /Qtile-Config/* ~/.config/qtile/`\
