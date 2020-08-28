@@ -7,4 +7,4 @@ This config should be used with the [scripts](https://github.com/DioptricDesign/
 ## Install
 `git clone https://github.com/DioptricDesign/Qtile-Config.git`\
 `mkdir ~/.config/qtile/`\
-`cp /Qtile-Config/* ~/.config/qtile/`\
+`cp /Qtile-Config/* ~/.config/qtile/`
