@@ -4,7 +4,7 @@ A feature rich Qtile configuration. It is meant to be used with pywal and many o
 This config should be used with the [scripts](https://github.com/DioptricDesign/scripts) in my scripts repo and my [startpage](https://github.com/DioptricDesign/min-startpage) for the most comprehensive expirience.
 ## Screenshots
 ![qtile config](screens/2020-08-23-131058_1920x1080_scrot.png)
-![qtile config](2020-08-28-092110_1920x1080_scrot.jpg)
+![qtile config](screens/2020-08-28-092110_1920x1080_scrot.jpg)
 ## Install
 `git clone https://github.com/DioptricDesign/Qtile-Config.git`\
 `mkdir ~/.config/qtile/`\
