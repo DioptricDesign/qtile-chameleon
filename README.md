@@ -8,7 +8,7 @@ For more information about this project check the [blog post.](https://wp.me/p8j
 `pywal` `feh`  `playerctl` `dunst` `font awesome` `qtile` `rofi`  `dmenu` `urxvt` `i3-lock` `scrot` `gnome-polkit` `redshift-gtk`  
 ## Screenshots
 ![qtile config](screens/2020-08-23-131058_1920x1080_scrot.png)
-> wallpaper from [@Ahmedafrah](https://unsplash.com/photos/UWCIzF2gkdg)
+> wallpaper from [@Ahmedafrah](https://unsplash.com/photos/UWCIzF2gkdg) Neofetch image [simon stålenhag](https://twitter.com/simonstalenhag/status/1061390484705177600)
 
 ![qtile config](screens/2020-08-28-092110_1920x1080_scrot.jpg)
 > wallpaper from  [u/ctzn_voyager](https://www.reddit.com/r/MechanicalKeyboards/comments/4vh8ui/photo_its_getting_crowded_in_here/) 
