@@ -5,7 +5,7 @@ For more information about this project check the [blog post.](https://wp.me/p8j
 ## Dependencies
 [scripts](https://github.com/DioptricDesign/scripts)<br>
 [startpage](https://github.com/DioptricDesign/min-startpage)<br> 
-`pywal` `feh`  `playerctl` `dunst` `font awesome` `qtile` `rofi`  `dmenu` `urxvt` `i3-lock` `scrot` 
+`pywal` `feh`  `playerctl` `dunst` `font awesome` `qtile` `rofi`  `dmenu` `urxvt` `i3-lock` `scrot` `gnome-polkit` `redshift-gtk`  
 ## Screenshots
 ![qtile config](screens/2020-08-23-131058_1920x1080_scrot.png)
 > wallpaper from [@Ahmedafrah](https://unsplash.com/photos/UWCIzF2gkdg)
