@@ -6,7 +6,7 @@
 # \___\_\\__|_|_|\___|  \_____\___/|_| |_|_| |_|\__, |
 #                                                __/ |
 #                                               |___/
-#This configuration is Feature Rich and comfortable. Inteded to be used modularly in many systems.
+#This configuration is Feature Rich and comfortable.
 #It depends on rofi, urxvt i3-lock, scrot, Font Awesome, pywal, dunst, redshift, polkit-gnome, compton and playerctl, For utilities and libraries.
 from libqtile.config import Key, Screen, Group, Drag, Click, DropDown, ScratchPad
 from libqtile.command import lazy
