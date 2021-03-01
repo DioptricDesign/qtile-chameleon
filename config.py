@@ -10,7 +10,7 @@
 #It depends on rofi, urxvt i3-lock, scrot, Font Awesome, pywal, dunst, redshift, polkit-gnome, compton and playerctl, For utilities and libraries.
 from libqtile.config import Key, Screen, Group, Drag, Click, DropDown, ScratchPad
 from libqtile.command import lazy
-from libqtile import layout, bar, widget, hook
+from libqtile import layout, bar, widget, hook, qtile
 from typing import List
 import os, subprocess, json
 #Hooks
@@ -190,7 +190,7 @@ screens = [ Screen( top=bar.Bar( [
                    fontsize=20,
                    padding=0,
                    foreground=ColorA),
-    widget.WindowName(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('dmen')},
+    widget.WindowName(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('dmen')},
                       foreground=ColorG,
                       background=ColorB,
                       padding=10),
@@ -199,7 +199,7 @@ screens = [ Screen( top=bar.Bar( [
                    fontsize=20,
                    padding=0,
                    foreground=ColorA),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('urxvt -e nmtui')},
+    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e nmtui')},
                    text='',
                    background=ColorA,
                    foreground=ColorG),
@@ -214,7 +214,7 @@ screens = [ Screen( top=bar.Bar( [
                    foreground=ColorB),
     widget.CPU (foreground=ColorG,
                 background=ColorB),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('urxvt -e htop')},
+    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e htop')},
                    text='',
                    foreground=ColorG,
                    background=ColorB),
@@ -225,24 +225,24 @@ screens = [ Screen( top=bar.Bar( [
                    fontsize=20,
                    padding=0,
                    foreground=ColorA),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('pavucontrol-qt')},
+    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('pavucontrol-qt')},
                    text='',
                    foreground=ColorG,
                    background=ColorA),
     widget.Volume(foreground=ColorG,
                   background=ColorA),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('urxvt -e khal interactive')},
+    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e khal interactive')},
                    text='',
                    background=ColorA,
                    foreground=ColorG),
     widget.Clock(format='%a %m-%d-%Y',
                  background=ColorA,
                  foreground=ColorG),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('timermenu')},
+    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('timermenu')},
                    text='',
                    background=ColorA,
                    foreground=ColorG),
-    widget.Clock(mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('urxvt -e peaclock')},
+    widget.Clock(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e peaclock')},
                  format='%I:%M %p',
                  background=ColorA,
                  foreground=ColorG,
