@@ -110,30 +110,30 @@ keys = [
     Key(["mod1", "control"], "x", lazy.spawn ("graphicsmenu"))
 ]
 #Workspace Groups
-group_names = [("I", {'layout': 'monadtall'}),
-               ("II", {'layout': 'monadtall'}),
-               ("III", {'layout': 'monadtall'}),
-               ("IV", {'layout': 'monadtall'}),
-               ("V", {'layout': 'monadtall'}),
-               ("VI", {'layout': 'monadtall'}),
-               ("VII", {'layout': 'monadtall'}),
-               ("VIII", {'layout': 'monadtall'}),
-               ("IX", {'layout': 'monadtall'})]
+group_names = [("I", {}),
+               ("II", {}),
+               ("III", {}),
+               ("IV", {}),
+               ("V", {}),
+               ("VI", {}),
+               ("VII", {}),
+               ("VIII", {}),
+               ("IX", {})]
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 groups = [ScratchPad("scratchpad",[
-          DropDown("term", "urxvt", opacity=0.8)]),
-          Group("I"),
-          Group("II"),
-          Group("III"),
-          Group("IV"),
-          Group("V"),
-          Group("VI"),
-          Group("VII"),
-          Group("VIII"),
-          Group("IX"),]
+          DropDown("term", "urxvt", opacity=0.95)]),
+          Group("I", layout='monadtall'),
+          Group("II", layout='monadtall',),
+          Group("III", layout='monadtall',),
+          Group("IV", layout='monadtall',),
+          Group("V", layout='max',),
+          Group("VI", layout='bsp',),
+          Group("VII", layout='bsp',),
+          Group("VIII", layout='bsp',),
+          Group("IX", layout='bsp',]
 #Layouts
 layouts = [
     layout.MonadTall(num_stacks=2,
