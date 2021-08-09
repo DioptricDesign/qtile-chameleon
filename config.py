@@ -1,19 +1,17 @@
-#  ____  _   _ _         _____             __ _
-# / __ \| | (_) |       / ____|           / _(_)
-#| |  | | |_ _| | ___  | |     ___  _ __ | |_ _  __ _
-#| |  | | __| | |/ _ \ | |    / _ \| '_ \|  _| |/ _` |
-#| |__| | |_| | |  __/ | |___| (_) | | | | | | | (_| |
-# \___\_\\__|_|_|\___|  \_____\___/|_| |_|_| |_|\__, |
-#                                                __/ |
-#                                               |___/
-#This configuration is Feature Rich and comfortable.
-#It depends on rofi, urxvt i3-lock, scrot, Font Awesome, pywal, dunst, redshift, polkit-gnome, compton and playerctl, For utilities and libraries.
-from libqtile.config import Key, Screen, Group, Drag, Click, DropDown, ScratchPad
-from libqtile.command import lazy
-from libqtile import layout, bar, widget, hook, qtile
+#  ___  _   _ _                  A Qtile Config With Pywal
+# / _ \| |_(_) | ___  Requires:  playerctl dunst scrot clipmenu xautolock 
+#| | | | __| | |/ x \ pywal rofi dmenu lm-sensors urxvt brave-browser
+#| | | | |_| | |  __/ i3lock htop notify-send khal pavucontol feh psutil
+# \__\_\\__|_|_|\___| Backgrounds should go in ~/.local/share/backgrounds
+# A Link to the acompanying scripts and start page is in the readme.
 from typing import List
+from libqtile import bar, layout, widget, hook, qtile
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
+from libqtile.lazy import lazy
+from libqtile.utils import guess_terminal
 import os, subprocess, json
-#Hooks
+
+# Functions
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
@@ -22,6 +20,21 @@ def autostart():
 def autorestart():
     home = os.path.expanduser('~/.config/qtile/autorestart.sh')
     subprocess.call([home])
+def htop():
+    qtile.cmd_spawn('urxvtc -e htop')
+def powermenu():
+    qtile.cmd_spawn('powermenu')
+def weather():
+    qtile.cmd_spawn('brave-browser https://openweathermap.org/city/3333147')
+def sound():
+    qtile.cmd_spawn('pavucontrol')
+def calendar():
+    qtile.cmd_spawn('urxvtc -e khal interactive')
+def dmen():
+    qtile.cmd_spawn('dmen')
+def timer():
+    qtile.cmd_spawn('timermenu')
+
 #Pywal Colors
 colors = os.path.expanduser('~/.cache/wal/colors.json')
 colordict = json.load(open(colors))
@@ -35,8 +48,11 @@ ColorF=(colordict['colors']['color6'])
 ColorG=(colordict['colors']['color7'])
 ColorH=(colordict['colors']['color8'])
 ColorI=(colordict['colors']['color9'])
+
 #Hotkeys
 mod = "mod4"
+terminal = guess_terminal()
+
 keys = [
     #Layout Management
     Key([mod], "j", lazy.layout.down()),
@@ -56,44 +72,56 @@ keys = [
     Key([mod, "control"], "h", lazy.layout.grow_left()),
     Key([mod, "control"], "l", lazy.layout.grow_right()),
     Key(["mod1"], "n", lazy.layout.normalize()),
-    Key([mod], "n", lazy.next_layout()),
+    Key([mod], "Right", lazy.next_layout()),
+    Key([mod], "Left", lazy.prev_layout()),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key(["mod1"], "f", lazy.window.toggle_floating()),
     Key([mod], "Return", lazy.layout.toggle_split()),
-    Key([mod], "space", lazy.layout.rotate()),
     Key(["mod1"], "b", lazy.spawn("bartoggle")),
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "e", lazy.shutdown()),
+    Key([mod], "x", lazy.window.kill()),
     Key([mod], "q", lazy.window.kill()),
+    Key(["mod1"], "F4", lazy.window.kill()),
+    Key(["mod1"], "x", lazy.spawn("xkill")),
     Key ([mod], "grave", lazy.group['scratchpad'].dropdown_toggle('term')),
+
     #Application Hotkeys
-    Key([], "Print", lazy.spawn("scrot ~/Pictures/scrots")),
-    Key([mod], "w", lazy.spawn("firefox")),
-    Key([mod], "e", lazy.spawn("emacs")),
+    Key(["mod1", "control"], "Delete", lazy.spawn ("urxvtc -e htop")),
+    Key([], "Print", lazy.spawn("scrot /home/user/Pictures/scrots/")),
+    Key([mod], "w", lazy.spawn("brave-browser")),
+    Key(["mod1"], "w", lazy.spawn("qutebrowser")),
+    Key([mod], "e", lazy.spawn("emacsclient -c ")),
     Key([mod], "r", lazy.spawn("liferea")),
+    Key([mod], "o", lazy.spawn("pavucontrol")),
     Key([mod], "c", lazy.spawn("qalculate-gtk")),
-    Key([mod], "p", lazy.spawn("gpodder")),
-    Key([mod], "t", lazy.spawn("urxvt")),
+    Key(["mod1"], "c", lazy.spawn("gcolor3")),
+    Key([mod], "g", lazy.spawn("gpodder")),
+    Key([mod], "t", lazy.spawn("urxvtc")),
+    Key(["mod1"], "t", lazy.spawn("xterm")),
     Key([mod], "m", lazy.spawn("thunderbird")),
     Key([mod,"shift"], "w", lazy.spawn("walp")),
     Key([mod], "v", lazy.spawn("vlc")),
-    Key([mod], "b", lazy.spawn("pcmanfm-qt")),
-    Key([mod], "d", lazy.spawn("discord")),
+    Key([mod], "b", lazy.spawn("pcmanfm")),
+
     #Audio and Media
-    Key([mod], 'Page_Down', lazy.spawn('pulseaudio-ctl down 5')),
-    Key([mod], 'Page_Up', lazy.spawn('pulseaudio-ctl up 5')),
-    Key([mod], 'End', lazy.spawn("amixer -q set Master toggle")),
-    Key([mod], 'Left', lazy.spawn("playerctl previous")),
-    Key([mod], 'Right', lazy.spawn("playerctl next")),
-    Key([mod], 'Down', lazy.spawn("playerctl play-pause")),
+    Key([mod], 'minus', lazy.spawn('pulseaudio-ctl down 5')),
+    Key([mod], 'equal', lazy.spawn('pulseaudio-ctl up 5')),
+    Key([mod], '0', lazy.spawn("amixer -q set Master toggle")),
+    Key([mod], 'comma', lazy.spawn("playerctl previous")),
+    Key([mod], 'period', lazy.spawn("playerctl next")),
+    Key([mod], 'slash', lazy.spawn("playerctl play-pause")),
+
     #Launcher & App Switcher
     Key(["mod1"], "d", lazy.spawn("dmen")),
     Key(["mod1"], "r", lazy.spawn("rofi -show run -modi run,window -show-icons -sidebar-mode")),
     Key(["mod1"], "Tab", lazy.spawn("rofi -show window -show-icons")),
     Key(["mod1"], "s", lazy.spawn("rofi -show ssh")),
+
     #Notification Scripts
     Key([mod], "s", lazy.spawn("sensornote")),
-    Key(["mod1"], "q", lazy.spawn("hotkey")),
+    Key(["mod1", "control"], "h", lazy.spawn("hotkey")),
+
     #Rofi Scripts
     Key(["mod1"], "p", lazy.spawn("clipmenu")),
     Key(["mod1", "control"], "a", lazy.spawn ("xautolockmenu")),
@@ -109,6 +137,7 @@ keys = [
     Key(["mod1", "control"], "v", lazy.spawn ("virtualmenu")),
     Key(["mod1", "control"], "x", lazy.spawn ("graphicsmenu"))
 ]
+
 #Workspace Groups
 group_names = [("I", {}),
                ("II", {}),
@@ -129,29 +158,80 @@ groups = [ScratchPad("scratchpad",[
           Group("II", layout='monadtall',),
           Group("III", layout='monadtall',),
           Group("IV", layout='monadtall',),
-          Group("V", layout='max',),
-          Group("VI", layout='bsp',),
+          Group("V", layout='max', matches=[Match(wm_class=["gimp","Inkscape","krita","darktable","shotwell","scribus"])]),
+          Group("VI", layout='max', matches=[Match(wm_class=["VirtualBox Machine","VirtualBox Manager"])]),
           Group("VII", layout='bsp',),
           Group("VIII", layout='bsp',),
-          Group("IX", layout='bsp',]
-#Layouts
+          Group("IX", layout='bsp', matches=[Match(wm_class=["Steam","Lutris","RetroArch","dosbox"])])]
+
 layouts = [
-    layout.MonadTall(num_stacks=2,
-                     margin=5,
-                     border_focus=ColorC,
-                     border_normal=ColorZ),
-    layout.Bsp(num_stacks=2,
-               margin=5,
-               border_focus=ColorC,
-               border_normal=ColorZ),
-    layout.Max(margin=5,
-               border_focus=ColorC,
-               border_normal=ColorZ)
+     layout.Bsp(margin=5,
+                border_focus=ColorE,
+                border_normal=ColorA),
+     layout.MonadTall(margin=5,
+                border_focus=ColorE,
+                border_normal=ColorA),
+     layout.Max(),
 ]
 
-floating_layout = layout.Floating(
-    border_focus=ColorC,
-    border_normal=ColorZ,
+#Widget Defaults
+widget_defaults = dict(
+    font='Source Code Pro',
+    fontsize=13,
+    padding=5,
+    foreground=ColorG
+)
+extension_defaults = widget_defaults.copy()
+
+#Screens
+screens = [
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(highlight_method='line',
+                                urgent_border=ColorF,
+                                active=ColorG,
+                                inactive=ColorB,
+                                this_screen_border=ColorB,
+                                this_current_screen_border=ColorC,),
+                widget.WindowName(mouse_callbacks = {'Button1':dmen}),
+                widget.TextBox(text='',
+                               mouse_callbacks = {'Button1':sound}),
+                widget.PulseVolume(),
+                widget.CPU(mouse_callbacks = {'Button1':htop}),
+                widget.Memory(format='MEM{MemUsed: .0f}{mm}', mouse_callbacks = {'Button1':htop}),
+                widget.Clock(format=' %Y-%m-%d %a', mouse_callbacks={'Button1':calendar}),
+                widget.Clock(format='  %I:%M %p', mouse_callbacks={'Button1':timer}),
+                widget.OpenWeather(cityid=3333147,
+                                   metric=False,
+                                   format=' {main_temp}°{units_temperature}',
+                                   mouse_callbacks = {'Button1':weather}),
+                widget.Systray(),
+                widget.CurrentLayoutIcon(scale=.75),
+                widget.TextBox(mouse_callbacks = {'Button1':powermenu},
+                               text='',),
+            ],
+            20, background ='#282828'
+        ),
+    ),
+]
+
+# Drag floating layouts.
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front())
+]
+
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: List
+follow_mouse_focus = True
+bring_front_click = False
+cursor_warp = False
+floating_layout = layout.Floating( border_focus=ColorE,
+                                   border_normal=ColorA,
     float_rules=[
     *layout.Floating.default_float_rules,
     Match(wm_class='confirmreset'),
@@ -160,6 +240,7 @@ floating_layout = layout.Floating(
     Match(wm_class='ssh-askpass'),
     Match(title='branchdialog'),
     Match(title='pinentry'),
+    Match(title='Volume Control'),
     Match(title='Library'),
     Match(title='Unlock Login Keyring'),
     Match(wm_class='confirm'),
@@ -173,116 +254,12 @@ floating_layout = layout.Floating(
     Match(wm_class='file_progress'),
     Match(wm_class='notification'),
     Match(wm_class='splash'),
-    Match(wm_class='gcolor2'),
+    Match(wm_class='toolbar'),
+    Match(wm_class='gcolor3'),
     Match(wm_class='qalculate-gtk'),
-    Match(wm_class='qt5ct'),
-    Match(wm_class='keepassxc'),
-])
-#Bar
-widget_defaults = dict(font='Noto Sans',
-                       fontsize=14,
-                       padding=3,)
-extension_defaults = widget_defaults.copy()
-screens = [ Screen( top=bar.Bar( [
-    widget.GroupBox(highlight_method='block',
-                    rounded = False,
-                    background=ColorA,
-                    this_current_screen_border=ColorC,
-                    this_screen_border=ColorB,
-                    inactive=ColorZ,
-                    other_screen_border=ColorB,
-                    active=ColorG,
-                    urgent_text=ColorC,
-                    urgent_border=ColorF,
-                    other_current_screen_border=ColorC,
-                    font='Noto Serif'),
-    widget.TextBox(text='\uE0B0',
-                   background=ColorB,
-                   fontsize=20,
-                   padding=0,
-                   foreground=ColorA),
-    widget.WindowName(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('dmen')},
-                      foreground=ColorG,
-                      background=ColorB,
-                      padding=10),
-    widget.TextBox(text='\uE0B2',
-                   background=ColorB,
-                   fontsize=20,
-                   padding=0,
-                   foreground=ColorA),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e nmtui')},
-                   text='',
-                   background=ColorA,
-                   foreground=ColorG),
-    widget.Wlan(interface='wlp0s19f2u1',
-                update_interval=3,
-                background=ColorA,
-                foreground=ColorG),
-    widget.TextBox(text='\uE0B2',
-                   background=ColorA,
-                   fontsize=20,
-                   padding=0,
-                   foreground=ColorB),
-    widget.CPU (foreground=ColorG,
-                background=ColorB),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e htop')},
-                   text='',
-                   foreground=ColorG,
-                   background=ColorB),
-    widget.Memory(foreground=ColorG,
-                  background=ColorB),
-    widget.TextBox(text='\uE0B2',
-                   background=ColorB,
-                   fontsize=20,
-                   padding=0,
-                   foreground=ColorA),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('pavucontrol-qt')},
-                   text='',
-                   foreground=ColorG,
-                   background=ColorA),
-    widget.Volume(foreground=ColorG,
-                  background=ColorA),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e khal interactive')},
-                   text='',
-                   background=ColorA,
-                   foreground=ColorG),
-    widget.Clock(format='%a %m-%d-%Y',
-                 background=ColorA,
-                 foreground=ColorG),
-    widget.TextBox(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('timermenu')},
-                   text='',
-                   background=ColorA,
-                   foreground=ColorG),
-    widget.Clock(mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('urxvt -e peaclock')},
-                 format='%I:%M %p',
-                 background=ColorA,
-                 foreground=ColorG,
-                 padding=5),
-    widget.TextBox(text='\uE0B2',
-                   background=ColorA,
-                   fontsize=20,
-                   padding=0,
-                   foreground=ColorB),
-    widget.Systray(background=ColorB,
-                   padding=5),
-    widget.CurrentLayoutIcon(scale=.7,
-                             background=ColorB)
-], 20, background=ColorZ )),
-]
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-	"window_type = 'desktop'",
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
-]
-dgroups_key_binder = None
-dgroups_app_rules = []
-main = None
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
+    Match(wm_class='qt5ct'),])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+reconfigure_screens = True
+auto_minimize = True
 wmname = "LG3D"
