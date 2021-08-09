@@ -7,8 +7,8 @@ For more information about this project check the [blog post.](https://wp.me/p8j
 [startpage](https://github.com/DioptricDesign/min-startpage)<br> 
 `pywal` `feh`  `playerctl` `dunst` `font awesome` `qtile` `rofi`  `dmenu` `urxvt` `i3-lock` `scrot` `gnome-polkit` `redshift-gtk`  
 ## Screenshots
-![qtile config](screens/2020-08-23-131058_1920x1080_scrot.png)
-> wallpaper from [@Ahmedafrah](https://unsplash.com/photos/UWCIzF2gkdg) Neofetch image [simon stålenhag](https://twitter.com/simonstalenhag/status/1061390484705177600)
+![qtile config](2021-08-09-122122_1920x1080_scrot.png)
+> wallpaper from [@Ahmedafrah](https://unsplash.com/photos/UWCIzF2gkdg)
 
 ![qtile config](screens/2021-08-09-120326_1920x1080_scrot.png)
 > wallpaper from  [u/ctzn_voyager](https://www.reddit.com/r/MechanicalKeyboards/comments/4vh8ui/photo_its_getting_crowded_in_here/) 
