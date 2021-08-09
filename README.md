@@ -7,7 +7,7 @@ For more information about this project check the [blog post.](https://wp.me/p8j
 [startpage](https://github.com/DioptricDesign/min-startpage)<br> 
 `pywal` `feh`  `playerctl` `dunst` `font awesome` `qtile` `rofi`  `dmenu` `urxvt` `i3-lock` `scrot` `gnome-polkit` `redshift-gtk`  
 ## Screenshots
-![qtile config](2021-08-09-122122_1920x1080_scrot.png)
+![qtile config](screens/2021-08-09-122122_1920x1080_scrot.png)
 > wallpaper from [@Ahmedafrah](https://unsplash.com/photos/UWCIzF2gkdg)
 
 ![qtile config](screens/2021-08-09-120326_1920x1080_scrot.png)
