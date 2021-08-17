@@ -12,7 +12,12 @@ For more information about this project check the [blog post.](https://wp.me/p8j
 
 ![qtile config](screens/2021-08-09-120326_1920x1080_scrot.png)
 > wallpaper from  [u/ctzn_voyager](https://www.reddit.com/r/MechanicalKeyboards/comments/4vh8ui/photo_its_getting_crowded_in_here/) 
-## Install
+## Automatic Install
+Installs scripts, startpage, and qtile config\
+`curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh`\
+`sh installscript.sh`
+## Manual Install
+Installs qtile config only\
 `git clone https://github.com/DioptricDesign/qtile-chameleon.git`\
 `mkdir ~/.config/qtile/`\
 `cp qtile-chameleon/* ~/.config/qtile/`
