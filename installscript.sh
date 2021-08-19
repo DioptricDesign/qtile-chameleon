@@ -14,6 +14,7 @@ bgdir="$HOME/.local/share/backgrounds/"
 startdir="$HOME/.local/share/start-page/"
 startp="https://github.com/DioptricDesign/min-startpage.git"
 wallpapers="https://github.com/DioptricDesign/Wallpapers.git"
+scrotsdir="$HOME/Pictures/scrots/"
 
 #Make Directories
 echo Making Directories
@@ -22,6 +23,7 @@ mkdir "$scriptsdir"
 mkdir "$qtiledir"
 mkdir "$bgdir"
 mkdir "$startdir"
+mkdir "$scrotsdir"
 
 #Clone Repos
 echo Cloning Git Repos...
