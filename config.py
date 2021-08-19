@@ -197,6 +197,7 @@ screens = [
                 widget.WindowName(mouse_callbacks = {'Button1':dmen}),
                 widget.TextBox(text='',
                                mouse_callbacks = {'Button1':sound}),
+                widget.PulseVolume(),
                 widget.CPU(mouse_callbacks = {'Button1':htop}),
                 widget.Memory(format='MEM{MemUsed: .0f}{mm}', mouse_callbacks = {'Button1':htop}),
                 widget.Clock(format=' %Y-%m-%d %a', mouse_callbacks={'Button1':calendar}),
