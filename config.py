@@ -88,7 +88,7 @@ keys = [
 
     #Application Hotkeys
     Key(["mod1", "control"], "Delete", lazy.spawn ("urxvtc -e htop")),
-    Key([], "Print", lazy.spawn("scrot /home/user/Pictures/scrots/")),
+    Key([], "Print", lazy.spawn("scrot $HOME/Pictures/scrots/")),
     Key([mod], "w", lazy.spawn("brave-browser")),
     Key(["mod1"], "w", lazy.spawn("qutebrowser")),
     Key([mod], "e", lazy.spawn("emacsclient -c ")),
