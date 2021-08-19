@@ -46,7 +46,11 @@ sudo cp "$HOME/qtilechameleon/scripts/bin/"* "$bindir"
 #Cleanup
 echo Cleaning up...
 rm -rf "$qtchdl"
+
+#Adjust CSS to user
+echo Adjusting Style Sheet
+sed "s/user/${USER}/" "$startdir/min.css"
 echo Install complete.
 echo If anything seems broken make sure you have the required program.
 echo To use the startpage change your browsers homepage to ~/.local/share/start-page/min.html
-echo Adjust the path in min.css to direct to your users color.css
+
