@@ -13,6 +13,7 @@ bindir="/usr/local/bin/"
 bgdir="$HOME/.local/share/backgrounds/"
 startdir="$HOME/.local/share/start-page/"
 startp="https://github.com/DioptricDesign/min-startpage.git"
+wallpapers="https://github.com/DioptricDesign/Wallpapers.git"
 
 #Make Directories
 echo Making Directories
@@ -26,6 +27,7 @@ mkdir "$startdir"
 echo Cloning Git Repos...
 git clone "$qtile_chameleon" "$qtchdl/qtile-chameleon"
 git clone "$scripts" "$qtchdl/scripts"
+git clone "$wallpapers" "$qtchdl/wallpapers"
 git clone "$startp" "$startdir"
 
 #Make Binaries executable
@@ -36,17 +38,13 @@ chmod +x "/home/user/qtilechameleon/scripts/bin/"*
 echo Copying Files...
 cp -r "$HOME/qtilechameleon/qtile-chameleon/"* "$qtiledir"
 cp "$HOME/qtilechameleon/scripts/"*.sh "$scriptsdir"
+cp "$HOME/qtilechameleon/wallpapers/"*.jpg "$bgdir"
 sudo cp "$HOME/qtilechameleon/scripts/bin/"* "$bindir"
 
 #Cleanup
 echo Cleaning up...
 rm -rf "$qtchdl"
 echo Install complete.
-
-#Enumerate Wallpaper
-echo Enumerating Background Files
-ls "$bgdir" | wc -l
-echo Make sure you have at least one image file in ~/.local/share/backgrounds/
 echo If anything seems broken make sure you have the required program.
 echo To use the startpage change your browsers homepage to ~/.local/share/start-page/min.html
 echo Adjust the path in min.css to direct to your users color.css
