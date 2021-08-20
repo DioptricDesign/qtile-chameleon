@@ -8,6 +8,8 @@ On Debian based systems: \
 `sudo apt install policykit-1-gnome htop lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode i3lock scrot dunst redshift-gtk fonts-font-awesome xautolock pip`\
 `pip install qtile psutil pywal`\
 Get clipmenud [here](https://github.com/cdown/clipmenu).
+## Optional Software Suite
+`sudo apt install qutebrowser emacs akregator keepassxc qalculate-gtk gcolor3 gpodder xterm thunderbird vlc pcmanfm discord steam lutris dosbox calibre inkscape gimp scribus krita darktable hexchat`
 ## Automatic Install
 Installs Scripts, Start Page, Wallpapers and Qtile config\
 `curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh`\
