@@ -1,14 +1,14 @@
 # qtile-chameleon
 A colorful, dynamic [qtile](https://github.com/qtile/qtile) configuration
 ## More information
-For more information about this project check out the blog posts[1](https://wp.me/p8j8Cr-qe), [2](https://www.dioptricdesign.com/2021/08/20/qtile-chameleon-update/). \
-Also checkout the repositories for the [scripts](https://github.com/DioptricDesign/scripts) & [startpage](https://github.com/DioptricDesign/min-startpage)<br> 
+For more information about this project check out the blog posts [1](https://wp.me/p8j8Cr-qe), [2](https://www.dioptricdesign.com/2021/08/20/qtile-chameleon-update/). \
+Also checkout the repositories for the [scripts](https://github.com/DioptricDesign/scripts) & [start page](https://github.com/DioptricDesign/min-startpage)<br> 
 ## Dependencies
 On Debian based systems: \
 `sudo apt install playerctl feh rofi dmenu rxvt-unicode i3lock scrot dunst redshift-gtk fonts-font-awesome pip`\
 `pip install qtile psutil pywal`
 ## Automatic Install
-Installs scripts, startpage, and qtile config\
+Installs Scripts, Start Page, Wallpapers and Qtile config\
 `curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh`\
 `sh installscript.sh`
 ## Screenshots
