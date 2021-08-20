@@ -92,7 +92,7 @@ keys = [
     Key([mod], "w", lazy.spawn("brave-browser")),
     Key(["mod1"], "w", lazy.spawn("qutebrowser")),
     Key([mod], "e", lazy.spawn("emacsclient -c ")),
-    Key([mod], "r", lazy.spawn("liferea")),
+    Key([mod], "r", lazy.spawn("akregator")),
     Key([mod], "o", lazy.spawn("pavucontrol")),
     Key([mod], "c", lazy.spawn("qalculate-gtk")),
     Key(["mod1"], "c", lazy.spawn("gcolor3")),
