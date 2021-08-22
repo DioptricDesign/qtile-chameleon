@@ -107,7 +107,7 @@ keys = [
     #Audio and Media
     Key([mod], 'minus', lazy.spawn('pulseaudio-ctl down 5')),
     Key([mod], 'equal', lazy.spawn('pulseaudio-ctl up 5')),
-    Key([mod], '0', lazy.spawn("amixer -q set Master toggle")),
+    Key([mod], '0', lazy.spawn("pulseaudio-ctl mute")),
     Key([mod], 'comma', lazy.spawn("playerctl previous")),
     Key([mod], 'period', lazy.spawn("playerctl next")),
     Key([mod], 'slash', lazy.spawn("playerctl play-pause")),
