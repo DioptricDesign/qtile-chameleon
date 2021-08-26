@@ -25,7 +25,7 @@ def htop():
 def powermenu():
     qtile.cmd_spawn('powermenu')
 def weather():
-    qtile.cmd_spawn('firefox https://openweathermap.org/city/3333147')
+    qtile.cmd_spawn('xdg-open https://openweathermap.org/city/3333147')
 def sound():
     qtile.cmd_spawn('pavucontrol')
 def calendar():
