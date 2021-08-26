@@ -1,6 +1,6 @@
 #  ___  _   _ _                  A Qtile Config With Pywal
 # / _ \| |_(_) | ___  Requires:  playerctl dunst scrot clipmenu xautolock 
-#| | | | __| | |/ x \ pywal rofi dmenu lm-sensors urxvt brave-browser
+#| | | | __| | |/ x \ pywal rofi dmenu lm-sensors urxvt firefox
 #| | | | |_| | |  __/ i3lock htop notify-send khal pavucontol feh psutil
 # \__\_\\__|_|_|\___| Backgrounds should go in ~/.local/share/backgrounds
 # A Link to the acompanying scripts and start page is in the readme.
@@ -25,7 +25,7 @@ def htop():
 def powermenu():
     qtile.cmd_spawn('powermenu')
 def weather():
-    qtile.cmd_spawn('brave-browser https://openweathermap.org/city/3333147')
+    qtile.cmd_spawn('firefox https://openweathermap.org/city/3333147')
 def sound():
     qtile.cmd_spawn('pavucontrol')
 def calendar():
@@ -89,7 +89,7 @@ keys = [
     #Application Hotkeys
     Key(["mod1", "control"], "Delete", lazy.spawn ("urxvtc -e htop")),
     Key([], "Print", lazy.spawn("scrot $HOME/Pictures/scrots/")),
-    Key([mod], "w", lazy.spawn("brave-browser")),
+    Key([mod], "w", lazy.spawn("firefox")),
     Key(["mod1"], "w", lazy.spawn("qutebrowser")),
     Key([mod], "e", lazy.spawn("emacsclient -c ")),
     Key([mod], "r", lazy.spawn("akregator")),
