@@ -5,7 +5,7 @@ For more information about this project check out the blog posts [1](https://wp.
 Also checkout the repositories for the [scripts](https://github.com/DioptricDesign/scripts) & [start page](https://github.com/DioptricDesign/min-startpage).<br> 
 ## Dependencies
 On Debian based systems: \
-`sudo apt install git policykit-1-gnome htop lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode i3lock scrot dunst redshift-gtk fonts-font-awesome xautolock pip`\
+`sudo apt install git policykit-1-gnome htop lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode i3lock scrot dunst wget redshift-gtk fonts-font-awesome xautolock pip`\
 `pip install qtile psutil pywal`\
 Get clipmenud [here](https://github.com/cdown/clipmenu).
 ### Optional Software Suite
