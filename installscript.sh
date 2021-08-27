@@ -82,7 +82,12 @@ rm -rf "$qtchdl"
 
 #Adjust CSS to user
 echo Adjusting Style Sheet
-sed "s/user/${USER}/" "$startdir/min.css"
+sed -i "s/user/${USER}/" "$startdir/min.css"
+
+#Adjust Clipmenu for Rofi
+echo changing CM_LAUNCHER to rofi
+sudo sed -i s/CM_LAUNCHER=dmenu/CM_LAUNCHER=rofi/ /usr/bin/clipmenu/
+sudo sed -i "s/-dmenu "$@"/-dmenu -p "Clipboard" "$@"/" /usr/bin/clipmenu/
 
 #Wall
 echo Running walp
