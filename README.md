@@ -3,17 +3,8 @@ A colorful, dynamic [Qtile](https://github.com/qtile/qtile) configuration that u
 ## More information
 For more information about this project check out the blog posts [1](https://wp.me/p8j8Cr-qe), [2](https://www.dioptricdesign.com/2021/08/20/qtile-chameleon-update/). \
 Also checkout the repositories for the [scripts](https://github.com/DioptricDesign/scripts) & [start page](https://github.com/DioptricDesign/min-startpage).<br> 
-## Dependencies
-On Debian based systems: \
-`sudo apt install git policykit-1-gnome htop lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome xautolock pip`\
-`pip install qtile psutil pywal`\
-Get clipmenud [here](https://github.com/cdown/clipmenu).
-### Optional Software Suite
-On Debian based systems: \
-`sudo apt install qutebrowser emacs akregator qalculate-gtk gcolor3 gpodder xterm thunderbird vlc pcmanfm discord steam lutris dosbox calibre inkscape gimp scribus krita darktable hexchat`\
-Get the Brave Browser [here](https://brave.com/linux/#linux)
 ## Automatic Install
-Installs Scripts, Start Page, Wallpapers and Qtile config\
+A deployment script for Debian based systems. It Installs everything you need to use Qtile Chameleon.\
 `curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh`\
 `sh installscript.sh`
 ## Screenshots
