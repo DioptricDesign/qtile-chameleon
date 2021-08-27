@@ -176,7 +176,7 @@ layouts = [
 
 #Widget Defaults
 widget_defaults = dict(
-    font='Source Code Pro',
+    font='Noto Sans',
     fontsize=13,
     padding=5,
     foreground=ColorG
