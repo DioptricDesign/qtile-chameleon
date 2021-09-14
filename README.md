@@ -5,7 +5,7 @@ For more information about this project check out the blog posts [1](https://wp.
 Also checkout the repositories for the [scripts](https://github.com/DioptricDesign/scripts) & [start page](https://github.com/DioptricDesign/min-startpage).<br> 
 ## Automatic Install
 A deployment script for Debian based systems. It Installs everything you need to use Qtile Chameleon.\
-`curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh && sh installscript.sh`
+$`curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh && sh installscript.sh`
 ## Screenshots
 ![qtile config](screens/2021-08-09-122122_1920x1080_scrot.png)
 > wallpaper from [@Ahmedafrah](https://unsplash.com/photos/UWCIzF2gkdg)
