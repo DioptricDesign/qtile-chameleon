@@ -116,7 +116,7 @@ keys = [
     Key(["mod1"], "d", lazy.spawn("dmen")),
     Key(["mod1"], "r", lazy.spawn("rofi -show run -modi run,window -show-icons -sidebar-mode")),
     Key(["mod1"], "Tab", lazy.spawn("rofi -show window -show-icons")),
-    Key(["mod1"], "s", lazy.spawn("rofi -show ssh")),
+    Key(["mod1"], "s", lazy.spawn("dmsearch")),
 
     #Notification Scripts
     Key([mod], "s", lazy.spawn("sensornote")),
