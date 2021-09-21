@@ -57,8 +57,9 @@ git clone "$clipnotify" "$qtchdl/clipnotify"
 wget "$xsession" -P"$qtchdl"
 
 #Make Binaries executable
-echo Making Binaries Executable
-chmod +x "/home/user/qtilechameleon/scripts/bin/"*
+echo Making Scripts Executable
+chmod +x "$qtchdl"/scripts/bin/*
+chmod +x "$qtchdl"/scripts/*.sh
 
 #Build Clipmenu
 echo Building Clipmenu
