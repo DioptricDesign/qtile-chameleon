@@ -24,15 +24,16 @@ echo Backup your old configurations to avoid data loss.
 
 #Install Dependencies
 echo Installing Dependencies
-sudo apt install policykit-1-gnome libpangocairo-1.0-0 khal xsel vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
-pip3 install cffi
-pip3 install xcffib
-pip3 install cairocffi
-pip3 install psutil
-pip3 install qtile
+sudo apt install git policykit-1-gnome libpangocairo-1.0-0 khal xsel vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
+sudo pip3 install cffi
+sudo pip3 install xcffib
+sudo pip3 install cairocffi
+sudo pip3 install psutil
+sudo pip3 install qtile
+sudo pip3 install pywal
 
 #Install Extra Software
-echo Installing extra software
+pythonecho Installing extra software
 sudo apt install qutebrowser emacs akregator gcolor3 gpodder xterm thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
 
 #Make Directories
