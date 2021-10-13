@@ -33,7 +33,7 @@ sudo pip3 install qtile
 sudo pip3 install pywal
 
 #Install Extra Software
-pythonecho Installing extra software
+echo Installing extra software
 sudo apt install qutebrowser emacs akregator gcolor3 gpodder xterm thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
 
 #Make Directories
