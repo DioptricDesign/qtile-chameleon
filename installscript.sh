@@ -74,7 +74,7 @@ echo Copying Files...
 cp -r "$qtchdl"/qtile-chameleon/* "$qtiledir"
 cp "$qtchdl"/scripts/*.sh "$scriptsdir"
 cp "$qtchdl"/scripts/.Xdefaults "$HOME"
-cp "$qtchdl"/wallpapers/*.jpg "$bgdir"
+cp "$qtchdl"/wallpapers/*.png*.jpg "$bgdir"
 sudo cp "$qtchdl"/scripts/bin/* "$bindir"
 sudo cp "$qtchdl"/qtile.desktop "$xdir"
 
