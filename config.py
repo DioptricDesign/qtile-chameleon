@@ -6,7 +6,7 @@
 # A Link to the acompanying scripts and start page is in the readme.
 from typing import List
 from libqtile import bar, layout, widget, hook, qtile
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import os, subprocess, json
@@ -54,11 +54,12 @@ mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
-    #Layout Management
+    #Navigation
     Key([mod], "j", lazy.layout.down()),
     Key([mod], "k", lazy.layout.up()),
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
+    #Movement
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
@@ -67,43 +68,29 @@ keys = [
     Key([mod, "mod1"], "k", lazy.layout.flip_up()),
     Key([mod, "mod1"], "h", lazy.layout.flip_left()),
     Key([mod, "mod1"], "l", lazy.layout.flip_right()),
+    Key([mod], "Return", lazy.layout.toggle_split()),
+    #Size
     Key([mod, "control"], "j", lazy.layout.grow_down()),
     Key([mod, "control"], "k", lazy.layout.grow_up()),
     Key([mod, "control"], "h", lazy.layout.grow_left()),
     Key([mod, "control"], "l", lazy.layout.grow_right()),
     Key(["mod1"], "n", lazy.layout.normalize()),
+    #Layout
     Key([mod], "Right", lazy.next_layout()),
     Key([mod], "Left", lazy.prev_layout()),
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
-    Key(["mod1"], "f", lazy.window.toggle_floating()),
-    Key([mod], "Return", lazy.layout.toggle_split()),
-    Key(["mod1"], "b", lazy.spawn("bartoggle")),
-    Key([mod, "shift"], "r", lazy.restart()),
-    Key([mod, "shift"], "e", lazy.shutdown()),
-    Key([mod], "x", lazy.window.kill()),
-    Key([mod], "q", lazy.window.kill()),
-    Key(["mod1"], "F4", lazy.window.kill()),
+    #Windows
+    Key([], "F11", lazy.window.toggle_fullscreen()),
+    Key([], "F10", lazy.window.toggle_floating()),
     Key(["mod1"], "x", lazy.spawn("xkill")),
-    Key ([mod], "grave", lazy.group['scratchpad'].dropdown_toggle('term')),
-
-    #Application Hotkeys
-    Key(["mod1", "control"], "Delete", lazy.spawn ("urxvtc -e htop")),
-    Key([], "Print", lazy.spawn("scrot $HOME/Pictures/scrots/")),
-    Key([mod], "w", lazy.spawn("firefox")),
-    Key(["mod1"], "w", lazy.spawn("qutebrowser")),
-    Key([mod], "e", lazy.spawn("emacsclient -c ")),
-    Key([mod], "r", lazy.spawn("akregator")),
-    Key([mod], "o", lazy.spawn("pavucontrol")),
-    Key([mod], "c", lazy.spawn("qalculate-gtk")),
-    Key(["mod1"], "c", lazy.spawn("gcolor3")),
-    Key([mod], "g", lazy.spawn("gpodder")),
-    Key([mod], "t", lazy.spawn("urxvtc")),
-    Key(["mod1"], "t", lazy.spawn("xterm")),
-    Key([mod], "m", lazy.spawn("thunderbird")),
-    Key([mod,"shift"], "w", lazy.spawn("walp")),
-    Key([mod], "v", lazy.spawn("vlc")),
-    Key([mod], "b", lazy.spawn("pcmanfm")),
-
+    Key([mod], "x", lazy.window.kill()),
+    #Qtile
+    Key([mod], "grave",lazy.group["scratchpad"].dropdown_toggle("term")),
+    KeyChord([mod], "q",[
+        Key([], "b", lazy.spawn("bartoggle")),
+        Key([], "w", lazy.spawn("walp")),
+        Key([], "c", lazy.spawn("clipmenu")),
+        Key([], "r", lazy.restart()),
+        Key([], "q", lazy.shutdown()),]),
     #Audio and Media
     Key([mod], 'minus', lazy.spawn('pulseaudio-ctl down 5')),
     Key([mod], 'equal', lazy.spawn('pulseaudio-ctl up 5')),
@@ -111,31 +98,45 @@ keys = [
     Key([mod], 'comma', lazy.spawn("playerctl previous")),
     Key([mod], 'period', lazy.spawn("playerctl next")),
     Key([mod], 'slash', lazy.spawn("playerctl play-pause")),
-
-    #Launcher & App Switcher
-    Key(["mod1"], "d", lazy.spawn("dmen")),
-    Key(["mod1"], "r", lazy.spawn("rofi -show run -modi run,window -show-icons -sidebar-mode")),
+    #Applications
+    Key(["mod1", "control"], "Delete", lazy.spawn ("urxvtc -e htop")),
+    Key([], "Print", lazy.spawn("scrot $HOME/Pictures/scrots/")),
+    Key([mod], "w", lazy.spawn("brave-browser")),
+    Key([mod], "e", lazy.spawn("emacsclient -c ")),
+    Key([mod], "r", lazy.spawn("akregator")),
+    Key([mod], "o", lazy.spawn("pavucontrol")),
+    Key([mod], "c", lazy.spawn("qalculate-gtk")),
+    Key([mod], "g", lazy.spawn("gpodder")),
+    Key([mod], "t", lazy.spawn("urxvtc")),
+    Key([mod], "m", lazy.spawn("thunderbird")),
+    Key([mod], "v", lazy.spawn("vlc")),
+    Key([mod], "f", lazy.spawn("pcmanfm")),
+    KeyChord([mod], "a", [
+        Key([], "d", lazy.spawn("discord")),
+        Key([], "w", lazy.spawn("qutebrowser")),
+        Key([], "c", lazy.spawn("gcolor3")),
+        Key([], "t", lazy.spawn("xterm")),
+        Key([], "p", lazy.spawn("keepassxc"))]),
+    #Launcher
+    Key([mod], "d", lazy.spawn("dmen")),
     Key(["mod1"], "Tab", lazy.spawn("rofi -show window -show-icons")),
-    Key(["mod1"], "s", lazy.spawn("dmsearch")),
-
-    #Notification Scripts
-    Key([mod], "s", lazy.spawn("sensornote")),
-    Key(["mod1", "control"], "h", lazy.spawn("hotkey")),
-
-    #Rofi Scripts
-    Key(["mod1"], "p", lazy.spawn("clipmenu")),
-    Key(["mod1", "control"], "a", lazy.spawn ("xautolockmenu")),
-    Key(["mod1", "control"], "p", lazy.spawn ("powermenu")),
-    Key(["mod1", "control"], "s", lazy.spawn ("scrotmenu")),
-    Key(["mod1", "control"], "l", lazy.spawn ("libmenu")),
-    Key(["mod1", "control"], "g", lazy.spawn ("gamesmenu")),
-    Key(["mod1", "control"], "c", lazy.spawn ("comptonmenu")),
-    Key(["mod1", "control"], "k", lazy.spawn ("calendarmenu")),
+    Key([mod], "s", lazy.spawn("dmsearch")),
+    #Scripts
     Key(["mod1", "control"], "o", lazy.spawn ("outputmenu")),
-    Key(["mod1", "control"], "m", lazy.spawn ("chatmenu")),
-    Key(["mod1", "control"], "t", lazy.spawn ("timermenu")),
+    Key(["mod1", "control"], "c", lazy.spawn ("comptonmenu")),
+    Key(["mod1", "control"], "p", lazy.spawn ("powermenu")),
+    Key(["mod1", "control"], "l", lazy.spawn ("xautolockmenu")),
+    Key(["mod1", "control"], "s", lazy.spawn("sensornote")),
     Key(["mod1", "control"], "v", lazy.spawn ("virtualmenu")),
-    Key(["mod1", "control"], "x", lazy.spawn ("graphicsmenu"))
+    Key(["mod1", "control"], "g", lazy.spawn ("gamesmenu")),
+    KeyChord([mod], "space", [
+        Key([], "h", lazy.spawn ("hotkey")),
+        Key([], "s", lazy.spawn ("scrotmenu")),
+        Key([], "l", lazy.spawn ("libmenu")),
+        Key([], "c", lazy.spawn ("calendarmenu")),
+        Key([], "m", lazy.spawn ("chatmenu")),
+        Key([], "t", lazy.spawn ("timermenu")),
+        Key([], "g", lazy.spawn ("graphicsmenu"))])
 ]
 
 #Workspace Groups
