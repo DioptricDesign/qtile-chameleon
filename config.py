@@ -101,7 +101,7 @@ keys = [
     #Applications
     Key(["mod1", "control"], "Delete", lazy.spawn ("urxvtc -e htop")),
     Key([], "Print", lazy.spawn("scrot $HOME/Pictures/scrots/")),
-    Key([mod], "w", lazy.spawn("brave-browser")),
+    Key([mod], "w", lazy.spawn("firefox")),
     Key([mod], "e", lazy.spawn("emacsclient -c ")),
     Key([mod], "r", lazy.spawn("akregator")),
     Key([mod], "o", lazy.spawn("pavucontrol")),
