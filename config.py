@@ -101,7 +101,7 @@ keys = [
     #Applications
     Key(["mod1", "control"], "Delete", lazy.spawn ("urxvtc -e htop")),
     Key([], "Print", lazy.spawn("scrot $HOME/Pictures/scrots/")),
-    Key([mod], "w", lazy.spawn("firefox")),
+    Key([mod], "w", lazy.spawn("qutebrowser")),
     Key([mod], "e", lazy.spawn("emacsclient -c ")),
     Key([mod], "r", lazy.spawn("akregator")),
     Key([mod], "o", lazy.spawn("pavucontrol")),
@@ -113,7 +113,7 @@ keys = [
     Key([mod], "f", lazy.spawn("pcmanfm")),
     KeyChord([mod], "a", [
         Key([], "d", lazy.spawn("discord")),
-        Key([], "w", lazy.spawn("qutebrowser")),
+        Key([], "w", lazy.spawn("firefox")),
         Key([], "c", lazy.spawn("gcolor3")),
         Key([], "t", lazy.spawn("xterm")),
         Key([], "p", lazy.spawn("keepassxc"))]),
@@ -151,7 +151,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 groups = [ScratchPad("scratchpad",[
           DropDown("term", "urxvt", opacity=0.95)]),
-          Group("I", layout='monadtall', matches=[Match(wm_class=["brave-browser",
+          Group("I", layout='monadtall', matches=[Match(wm_class=["qutebrowser",
                                                                   "Thunderbird",
                                                                   "akregator",])]),
           Group("II", layout='monadtall', matches=[Match(wm_class=["vlc",
