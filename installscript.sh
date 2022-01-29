@@ -34,7 +34,7 @@ sudo pip3 install pywal
 
 #Install Extra Software
 echo Installing extra software
-sudo apt install qutebrowser cmus emacs akregator gcolor3 gpodder xterm thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
+sudo apt install qutebrowser cmus emacs breeze-cursor-theme akregator gcolor3 gpodder xterm thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
 pip3 install adblock
 
 #Make Directories
