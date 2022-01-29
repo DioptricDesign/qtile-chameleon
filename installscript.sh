@@ -24,7 +24,7 @@ echo Backup your old configurations to avoid data loss.
 
 #Install Dependencies
 echo Installing Dependencies
-sudo apt install git policykit-1-gnome libpangocairo-1.0-0 khal xsel fonts-firacode  vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
+sudo apt install git policykit-1-gnome libpangocairo-1.0-0 khal xsel fonts-jetbrains-mono  vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
 sudo pip3 install cffi
 sudo pip3 install xcffib
 sudo pip3 install cairocffi
