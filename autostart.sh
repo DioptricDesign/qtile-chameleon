@@ -3,7 +3,7 @@
 xautolock -time 5 -locker "lock" &
 clipmenud &
 emacs --daemon &
-redshift-gtk &
+#redshift-gtk &
 nm-applet &
 urxvtd -q -f -o &
 walp & 
