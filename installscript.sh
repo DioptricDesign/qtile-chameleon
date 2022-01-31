@@ -1,6 +1,10 @@
 #!/bin/bash
 
 #Variables
+dots="https://github.com/DioptricDesign/dot-files.git"
+orgdir="$HOME/.org/"
+zatdir="$HOME/.config/zathura/"
+qutedir="$HOME/.config/qutebrowser/"
 qtile_chameleon="https://github.com/DioptricDesign/qtile-chameleon.git"
 qtiledir="$HOME/.config/qtile"
 scripts="https://github.com/DioptricDesign/scripts.git"
@@ -18,13 +22,14 @@ rofidir="$HOME/.config/rofi"
 spacemacs="https://github.com/syl20bnr/spacemacs"
 clipmenu="https://github.com/cdown/clipmenu.git"
 clipnotify="https://github.com/cdown/clipnotify.git"
+RED='\033[0;31m'
 
 echo qtile-chameleon install script
-echo Backup your old configurations to avoid data loss.
+echo -e "${RED}Backup your old configurations to avoid data loss. Qtile, Rofi, Dmenu, Emacs, Xdefaults, Zathura, and QuteBrowser will be modified."
 
 #Install Dependencies
 echo Installing Dependencies
-sudo apt install git policykit-1-gnome libpangocairo-1.0-0 khal xsel fonts-jetbrains-mono  vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
+sudo apt install git policykit-1-gnome libpangocairo-1.0-0 khal xsel breeze-cursor-theme fonts-jetbrains-mono xterm vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
 sudo pip3 install cffi
 sudo pip3 install xcffib
 sudo pip3 install cairocffi
@@ -34,12 +39,15 @@ sudo pip3 install pywal
 
 #Install Extra Software
 echo Installing extra software
-sudo apt install qutebrowser cmus emacs breeze-cursor-theme akregator gcolor3 gpodder xterm thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
+sudo apt install qutebrowser zathura cmus emacs gcolor3 gpodder thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
 pip3 install adblock
 
 #Make Directories
 echo Making Directories
 mkdir "$qtchdl"
+mkdir "$orgdir"
+mkdir "$zatdir"
+mkdir "$qutedir"
 mkdir "$scriptsdir"
 mkdir "$qtiledir"
 mkdir "$bgdir"
@@ -50,6 +58,7 @@ mkdir "$rofidir"
 #Clone Repos
 echo Cloning Git Repos...
 git clone "$qtile_chameleon" "$qtchdl/qtile-chameleon"
+git clone "$dots" "$qtchdl/dots"
 git clone "$scripts" "$qtchdl/scripts"
 git clone "$wallpapers" "$qtchdl/wallpapers"
 git clone "$startp" "$startdir"
@@ -77,6 +86,10 @@ cp "$qtchdl"/scripts/*.sh "$scriptsdir"
 cp "$qtchdl"/scripts/.Xdefaults "$HOME"
 cp "$qtchdl"/wallpapers/*.png "$bgdir"
 cp "$qtchdl"/wallpapers/*.jpg "$bgdir"
+cp "$qtchdl"/dots/Xdefaults ~/.Xdefaults
+cp "$qtchdl"/dots/spacemacs ~/.spacemacs
+cp "$qtchdl"/dots/config.py "$qutedir"
+cp "$qtchdl"/dots/zathurarc "$zatdir"
 sudo cp "$qtchdl"/scripts/bin/* "$bindir"
 sudo cp "$qtchdl"/qtile.desktop "$xdir"
 
@@ -87,6 +100,10 @@ rm -rf "$qtchdl"
 #Adjust CSS to user
 echo Adjusting Style Sheet
 sed -i "s/user/${USER}/" "$startdir/min.css"
+
+#Adjusting Qute Browser Config
+echo Adjusting Start Page
+sed -i "s/user/${USER}/" "$qutedir/config.py"
 
 #Adjust Clipmenu for Rofi
 echo changing CM_LAUNCHER to rofi
@@ -103,4 +120,3 @@ ln  ~/.cache/wal/colors-rofi-dark.rasi ~/.config/rofi/config.rasi
 
 #End Of Script
 echo Install complete.
-echo To use the startpage change your browsers homepage to ~/.local/share/start-page/min.html
