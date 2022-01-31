@@ -22,10 +22,9 @@ rofidir="$HOME/.config/rofi"
 spacemacs="https://github.com/syl20bnr/spacemacs"
 clipmenu="https://github.com/cdown/clipmenu.git"
 clipnotify="https://github.com/cdown/clipnotify.git"
-RED='\033[0;31m'
 
 echo qtile-chameleon install script
-echo -e "${RED}Backup your old configurations to avoid data loss. Qtile, Rofi, Dmenu, Emacs, Xdefaults, Zathura, and QuteBrowser will be modified."
+echo Backup your old configurations to avoid data loss. Qtile, Rofi, Dmenu, Emacs, Xdefaults, Zathura, and QuteBrowser will be modified.
 
 #Install Dependencies
 echo Installing Dependencies
@@ -39,7 +38,7 @@ sudo pip3 install pywal
 
 #Install Extra Software
 echo Installing extra software
-sudo apt install qutebrowser zathura cmus emacs gcolor3 gpodder thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
+sudo apt install qutebrowser zathura akregator cmus emacs gcolor3 gpodder thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
 pip3 install adblock
 
 #Make Directories
