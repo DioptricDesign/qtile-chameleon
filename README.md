@@ -7,7 +7,7 @@ Also checkout the repositories for the [scripts](https://github.com/DioptricDesi
 A deployment script for Debian based systems. It Installs everything you need to use Qtile Chameleon.\
 $`curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh && sh installscript.sh`
 ## Screenshots
-![qtile config](screens/screen1.png)
+![qtile config](screens/screens.gif)
 
 ## Special Thanks
 Many ideas for this configuration were taken from existing configurations in the [Qtile examples repo](https://github.com/qtile/qtile-examples) and Derek Taylor's [Qtile config](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile). 
