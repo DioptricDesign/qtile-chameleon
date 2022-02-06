@@ -5,6 +5,7 @@ dots="https://github.com/DioptricDesign/dot-files.git"
 orgdir="$HOME/.org/"
 zatdir="$HOME/.config/zathura/"
 qutedir="$HOME/.config/qutebrowser/"
+dunstdir="$HOME/.config/dunst/"
 qtile_chameleon="https://github.com/DioptricDesign/qtile-chameleon.git"
 qtiledir="$HOME/.config/qtile"
 scripts="https://github.com/DioptricDesign/scripts.git"
@@ -53,6 +54,7 @@ mkdir "$bgdir"
 mkdir "$startdir"
 mkdir "$scrotsdir"
 mkdir "$rofidir"
+mkdir "$dunstdir"
 
 #Clone Repos
 echo Cloning Git Repos...
@@ -87,6 +89,7 @@ cp "$qtchdl"/wallpapers/*.png "$bgdir"
 cp "$qtchdl"/wallpapers/*.jpg "$bgdir"
 cp "$qtchdl"/dots/Xdefaults ~/.Xdefaults
 cp "$qtchdl"/dots/spacemacs ~/.spacemacs
+cp "$qtchdl"/dots/dunstrc "$dunstdir"
 cp "$qtchdl"/dots/config.py "$qutedir"
 cp "$qtchdl"/dots/zathurarc "$zatdir"
 sudo cp "$qtchdl"/scripts/bin/* "$bindir"
