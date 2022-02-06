@@ -1,4 +1,5 @@
 # qtile-chameleon
+![qtile-chameleon](https://github.com/DioptricDesign/qtile-chameleon/blob/master/screens/qtilechameleon.png)\
 A colorful, dynamic [Qtile](https://github.com/qtile/qtile) configuration that uses pywal. 
 ## More information
 For more information about this project check out the blog posts [1](https://wp.me/p8j8Cr-qe), [2](https://www.dioptricdesign.com/2021/08/20/qtile-chameleon-update/). \
