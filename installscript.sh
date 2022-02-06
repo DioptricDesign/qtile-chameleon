@@ -24,8 +24,17 @@ spacemacs="https://github.com/syl20bnr/spacemacs"
 clipmenu="https://github.com/cdown/clipmenu.git"
 clipnotify="https://github.com/cdown/clipnotify.git"
 
-echo qtile-chameleon install script
-echo Backup your old configurations to avoid data loss. Qtile, Rofi, Dmenu, Emacs, Xdefaults, Zathura, and QuteBrowser will be modified.
+#Warning
+echo                     qtile-chameleon install script
+echo Backup your old configurations to avoid data loss. New Software will be installed.
+echo Dunst, Qtile, Rofi, Dmenu, Emacs, Xdefaults, Zathura, and QuteBrowser will be modified.
+echo Please be sure you know what this script does before you run it.  
+echo -n "Do you want to proceed (Y/N)?"
+
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then exit 0;
+fi
 
 #Install Dependencies
 echo Installing Dependencies
