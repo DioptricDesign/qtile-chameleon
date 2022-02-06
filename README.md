@@ -18,4 +18,6 @@ $`curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/mast
 
 ## Special Thanks
 [Qtile Examples](https://github.com/qtile/qtile-examples)<br> 
-[Derek Taylor](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile)
+[Derek Taylor](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile)\
+[JetBrains](https://github.com/jetbrains)\
+[Dylanaraps](https://github.com/dylanaraps/)
