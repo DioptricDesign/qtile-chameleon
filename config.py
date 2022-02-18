@@ -127,7 +127,6 @@ keys = [
     Key(["mod1", "control"], "p", lazy.spawn ("powermenu")),
     Key(["mod1", "control"], "l", lazy.spawn ("xautolockmenu")),
     Key(["mod1", "control"], "s", lazy.spawn("sensornote")),
-    Key(["mod1", "control"], "v", lazy.spawn ("virtualmenu")),
     Key(["mod1", "control"], "g", lazy.spawn ("gamesmenu")),
     KeyChord([mod], "space", [
         Key([], "h", lazy.spawn ("hotkey")),
