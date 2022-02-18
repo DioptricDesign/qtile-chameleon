@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Variables
+dddir="$HOME/Documents/DesignDocuments/"
 dots="https://github.com/DioptricDesign/dot-files.git"
 orgdir="$HOME/.org/"
 zatdir="$HOME/.config/zathura/"
@@ -53,6 +54,7 @@ pip3 install adblock
 
 #Make Directories
 echo Making Directories
+mkdir "$dddir"
 mkdir "$qtchdl"
 mkdir "$orgdir"
 mkdir "$zatdir"
