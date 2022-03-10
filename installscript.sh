@@ -96,7 +96,8 @@ sudo make install
 #Build Dmenu
 echo Building dmenu
 cd "$qtchdl"/dmenu
-sudo make clean install
+sudo make
+sudo make install
  
 #Copy Files
 echo Copying Files...
