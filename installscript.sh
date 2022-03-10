@@ -70,8 +70,8 @@ mkdir "$dunstdir"
 
 #Clone Repos
 echo Cloning Git Repos...
-git clone "$dmenu" "$qtchdl/dmenu"
 git clone "$qtile_chameleon" "$qtchdl/qtile-chameleon"
+git clone "$dmenu" "$qtchdl/dmenu"
 git clone "$dots" "$qtchdl/dots"
 git clone "$scripts" "$qtchdl/scripts"
 git clone "$wallpapers" "$qtchdl/wallpapers"
