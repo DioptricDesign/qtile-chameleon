@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Variables
+dmenu="https://github.com/DioptricDesign/qtile-chameleon.git"
 dddir="$HOME/Documents/DesignDocuments/"
 dots="https://github.com/DioptricDesign/dot-files.git"
 orgdir="$HOME/.org/"
@@ -39,7 +40,7 @@ fi
 
 #Install Dependencies
 echo Installing Dependencies
-sudo apt install git policykit-1-gnome libpangocairo-1.0-0 libnotify-bin libxinerama-dev libxft-dev khal xsel lxappearance qt5ct breeze breeze-gtk-theme breeze-cursor-theme fonts-jetbrains-mono xterm vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi dmenu rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
+sudo apt install git policykit-1-gnome libpangocairo-1.0-0 libnotify-bin libxinerama-dev libxft-dev khal xsel lxappearance qt5ct breeze breeze-gtk-theme breeze-cursor-theme fonts-jetbrains-mono xterm vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
 sudo pip3 install cffi
 sudo pip3 install xcffib
 sudo pip3 install cairocffi
@@ -69,6 +70,7 @@ mkdir "$dunstdir"
 
 #Clone Repos
 echo Cloning Git Repos...
+git clone "$dmenu" "$qtchdl/dmenu"
 git clone "$qtile_chameleon" "$qtchdl/qtile-chameleon"
 git clone "$dots" "$qtchdl/dots"
 git clone "$scripts" "$qtchdl/scripts"
@@ -90,6 +92,11 @@ cd "$qtchdl"/clipnotify
 sudo make install
 cd "$qtchdl"/clipmenu
 sudo make install
+
+#Build Dmenu
+echo Building dmenu
+cd "$qtchdl"/dmenu
+sudo make clean install
  
 #Copy Files
 echo Copying Files...
