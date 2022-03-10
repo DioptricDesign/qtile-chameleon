@@ -28,8 +28,8 @@ clipnotify="https://github.com/cdown/clipnotify.git"
 
 #Warning
 echo                     qtile-chameleon install script
-echo Backup your old configurations to avoid data loss. New Software will be installed.
-echo Dunst, Qtile, Rofi, Dmenu, Emacs, Xdefaults, Zathura, and QuteBrowser will be modified.
+echo Backup your old configurations to avoid data loss. 
+echo New Software will be installed. Software configurations will be modified.
 echo Please be sure you know what this script does before you run it.  
 echo -n "Do you want to proceed (Y/N)?"
 
