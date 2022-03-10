@@ -30,13 +30,23 @@ clipnotify="https://github.com/cdown/clipnotify.git"
 echo                     qtile-chameleon install script
 echo Backup your old configurations to avoid data loss. 
 echo New Software will be installed. Software configurations will be modified.
-echo Please be sure you know what this script does before you run it.  
+echo Please be sure you understand what this script does before you run it.  
 echo -n "Do you want to proceed (Y/N)?"
 
 read answer
 if test "$answer" != "Y" -a "$answer" != "y";
 then exit 0;
 fi
+
+#Check user
+if [ "$(id -u)" = 0 ]; then
+    echo "Do not run as root."
+    exit 1
+fi
+
+#Update
+echo Updating mirrors
+sudo apt update
 
 #Install Dependencies
 echo Installing Dependencies
