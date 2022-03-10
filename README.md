@@ -7,6 +7,7 @@ For more information about this project check out the blog posts. \
 [Qtile Chameleon Update](https://www.dioptricdesign.com/2021/08/20/qtile-chameleon-update/)
 ## Related Repositories 
 [scripts](https://github.com/DioptricDesign/scripts)\
+[dmenu](https://github.com/DioptricDesign/dmenu)\
 [Wallpapers](https://github.com/DioptricDesign/Wallpapers)\
 [dot-files](https://github.com/DioptricDesign/dot-files)\
 [start page](https://github.com/DioptricDesign/min-startpage)<br> 
@@ -15,9 +16,9 @@ A deployment script for Debian based systems. It Installs everything you need to
 `$ curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh && sh installscript.sh`
 ## Screenshots
 ![qtile config](screens/screens.gif)
-
 ## Special Thanks
 [Qtile Examples](https://github.com/qtile/qtile-examples)<br> 
 [Derek Taylor](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile)\
 [JetBrains](https://github.com/jetbrains)\
+[Cdown](https://github.com/cdown)\
 [Dylanaraps](https://github.com/dylanaraps/)
