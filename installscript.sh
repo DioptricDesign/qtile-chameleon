@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Variables
-dmenu="https://github.com/DioptricDesign/qtile-chameleon.git"
+dmenu="https://github.com/DioptricDesign/dmenu.git"
 dddir="$HOME/Documents/DesignDocuments/"
 dots="https://github.com/DioptricDesign/dot-files.git"
 orgdir="$HOME/.org/"
