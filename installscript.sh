@@ -50,7 +50,7 @@ sudo apt update
 
 #Install Dependencies
 echo Installing Dependencies
-sudo apt install git policykit-1-gnome libpangocairo-1.0-0 libnotify-bin libxinerama-dev libxft-dev khal xsel lxappearance qt5ct breeze breeze-gtk-theme breeze-cursor-theme fonts-jetbrains-mono xterm vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
+sudo apt install git policykit-1-gnome fonts-noto-core libpangocairo-1.0-0 libnotify-bin libxinerama-dev libxft-dev khal xsel lxappearance qt5ct breeze breeze-gtk-theme breeze-cursor-theme fonts-jetbrains-mono xterm vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
 sudo pip3 install cffi
 sudo pip3 install xcffib
 sudo pip3 install cairocffi
