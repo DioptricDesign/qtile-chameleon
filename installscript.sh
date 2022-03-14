@@ -28,10 +28,10 @@ clipnotify="https://github.com/cdown/clipnotify.git"
 
 #Warning
 echo                     qtile-chameleon install script
-echo Backup your old configurations to avoid data loss. 
+echo Backup your old configurations to avoid data loss.
 echo New Software will be installed. Software configurations will be modified.
-echo Please be sure you understand what this script does before you run it.  
-echo -n "Do you want to proceed (Y/N)?"
+echo Please be sure you understand what this script does before you run it.
+echo -n "Do you want to proceed (y/N)?"
 
 read answer
 if test "$answer" != "Y" -a "$answer" != "y";
@@ -50,7 +50,7 @@ sudo apt update
 
 #Install Dependencies
 echo Installing Dependencies
-sudo apt install git policykit-1-gnome fonts-noto-core libpangocairo-1.0-0 libnotify-bin libxinerama-dev libxft-dev khal xsel lxappearance qt5ct breeze breeze-gtk-theme breeze-cursor-theme fonts-jetbrains-mono xterm vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip 
+sudo apt install git policykit-1-gnome fonts-noto-core libpangocairo-1.0-0 libnotify-bin libxinerama-dev libxft-dev khal xsel lxappearance qt5ct breeze breeze-gtk-theme breeze-cursor-theme fonts-jetbrains-mono xterm vdirsyncer htop xserver-xorg lm-sensors pavucontrol playerctl feh rofi rxvt-unicode imagemagick i3lock scrot dunst wget redshift-gtk fonts-font-awesome libxfixes-dev xautolock pip
 sudo pip3 install cffi
 sudo pip3 install xcffib
 sudo pip3 install cairocffi
@@ -59,9 +59,82 @@ sudo pip3 install qtile
 sudo pip3 install pywal
 
 #Install Extra Software
-echo Installing extra software
-sudo apt install qutebrowser zathura akregator cmus emacs gcolor3 gpodder thunderbird vlc pcmanfm dosbox calibre inkscape gimp scribus krita darktable hexchat
+
+echo Installing desktop software
+sudo apt install qutebrowser akregator cmus emacs gpodder thunderbird vlc pcmanfm hexchat
 pip3 install adblock
+
+echo -n "Do you want to install graphic design software (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo skipping graphics software...
+else
+    sudo apt install inkscape gimp scribus krita blender gcolor3
+fi
+
+echo -n "Do you want to install desktop publishing software (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo skipping desktop publishing software...
+else
+    sudo apt install zathura scribus calibre
+fi
+
+echo -n "Do you want to install photography software (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo Skipping photograpy software...
+else
+    sudo apt install darktable shotwell
+fi
+
+echo -n "Do you want to install video editing software (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo Skipping video editing software...
+else
+    sudo apt install kdenlive
+fi
+
+echo -n "Do you want to install audio editing software (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo Skipping audio editing software...
+else
+    sudo apt install ardour lmms audacity
+fi
+
+echo -n "Do you want to install game design software (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo Skipping game design software...
+else
+    sudo apt install godot3 blender krita
+fi
+
+echo -n "Do you want to install Open Broadcaster Software (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo Skipping Open Broadbaster Software...
+else
+    sudo apt install obs-studio
+fi
+
+echo -n "Do you want to install gaming software (Nonfree Software!) (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo Skipping gaming software...
+else
+    sudo apt install dosbox lutris steam mangohud discord
+fi
 
 #Make Directories
 echo Making Directories
@@ -108,7 +181,7 @@ echo Building dmenu
 cd "$qtchdl"/dmenu
 sudo make
 sudo make install
- 
+
 #Copy Files
 echo Copying Files...
 cp -r "$qtchdl"/qtile-chameleon/* "$qtiledir"
