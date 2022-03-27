@@ -122,7 +122,7 @@ echo -n "Do you want to install Open Broadcaster Software (y/N)?"
 read answer
 if test "$answer" != "Y" -a "$answer" != "y";
 then
-    echo Skipping Open Broadbaster Software...
+    echo Skipping Open Broadcaster Software...
 else
     sudo apt install obs-studio
 fi
