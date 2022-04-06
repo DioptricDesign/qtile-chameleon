@@ -45,8 +45,9 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 #Update
-echo Updating mirrors
-sudo apt update
+echo Updating
+sudo apt update && 
+sudo apt upgrade
 
 #Install Dependencies
 echo Installing Dependencies
@@ -68,7 +69,7 @@ echo -n "Do you want to install graphic design software (y/N)?"
 read answer
 if test "$answer" != "Y" -a "$answer" != "y";
 then
-    echo skipping graphics software...
+    echo Skipping graphics software...
 else
     sudo apt install inkscape gimp scribus krita blender gcolor3
 fi
@@ -77,7 +78,7 @@ echo -n "Do you want to install desktop publishing software (y/N)?"
 read answer
 if test "$answer" != "Y" -a "$answer" != "y";
 then
-    echo skipping desktop publishing software...
+    echo Skipping desktop publishing software...
 else
     sudo apt install zathura scribus calibre
 fi
