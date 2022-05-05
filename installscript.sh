@@ -194,6 +194,7 @@ cp "$qtchdl"/dots/Xdefaults ~/.Xdefaults
 cp "$qtchdl"/dots/spacemacs ~/.spacemacs
 cp "$qtchdl"/dots/dunstrc "$dunstdir"
 cp "$qtchdl"/dots/config.py "$qutedir"
+cp "$qtchdl"/dots/config.rasi "$rofidir"
 cp "$qtchdl"/dots/zathurarc "$zatdir"
 sudo cp "$qtchdl"/scripts/bin/* "$bindir"
 sudo cp "$qtchdl"/qtile.desktop "$xdir"
@@ -218,10 +219,6 @@ sudo sed -i "s/-dmenu "$@"/-dmenu -p "Clipboard" "$@"/" /usr/bin/clipmenu
 #Wall
 echo Running walp
 walp
-
-#Rofi theme
-echo Linking Rofi Theme
-ln  ~/.cache/wal/colors-rofi-dark.rasi ~/.config/rofi/config.rasi
 
 #End Of Script
 echo Install complete.
