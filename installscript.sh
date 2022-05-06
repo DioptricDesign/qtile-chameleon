@@ -62,7 +62,7 @@ sudo pip3 install pywal
 #Install Extra Software
 
 echo Installing desktop software
-sudo apt install qutebrowser akregator cmus emacs gpodder thunderbird vlc pcmanfm hexchat
+sudo apt install qutebrowser akregator cmus emacs gpodder thunderbird vlc pcmanfm hexchat keepassxc
 pip3 install adblock
 
 echo -n "Do you want to install graphic design software (y/N)?"
