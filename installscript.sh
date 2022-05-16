@@ -137,6 +137,15 @@ else
     sudo apt install dosbox lutris steam mangohud discord
 fi
 
+echo -n "Do you want to configure khal calendar now? (y/N)?"
+read answer
+if test "$answer" != "Y" -a "$answer" != "y";
+then
+    echo Skipping khal configuration...
+else
+    khal configure
+fi
+
 #Make Directories
 echo Making Directories
 mkdir "$dddir"
