@@ -89,6 +89,7 @@ keys = [
         Key([], "b", lazy.spawn("bartoggle")),
         Key([], "w", lazy.spawn("walp")),
         Key([], "c", lazy.spawn("clipmenu")),
+        Key([], "Delete", lazy.spawn("clipdel -d \".*\" ")),
         Key([], "r", lazy.restart()),
         Key([], "q", lazy.shutdown()),]),
     #Audio and Media
