@@ -30,8 +30,8 @@ def sound():
     qtile.cmd_spawn('pavucontrol')
 def calendar():
     qtile.cmd_spawn('urxvtc -e khal interactive')
-def dmen():
-    qtile.cmd_spawn('dmen')
+def launcher():
+    qtile.cmd_spawn('rofi -show drun -show-icons')
 def timer():
     qtile.cmd_spawn('timermenu')
 
@@ -231,7 +231,8 @@ screens = [
         ),
         bottom=bar.Bar(
         [
-            widget.CurrentLayoutIcon(scale=.75),
+            widget.TextBox(text='',
+                           mouse_callbacks = {'Button1':launcher}),
             widget.WindowName(font='Noto Sans Bold'),
             widget.Cmus(play_color=ColorG,
                         noplay_color=ColorB),
@@ -239,6 +240,7 @@ screens = [
             widget.Memory(format='MEM{MemUsed: .0f}{mm}',
                           mouse_callbacks = {'Button1':htop}),
             widget.Systray(),
+            widget.CurrentLayoutIcon(scale=.65),
         ],
             22,
             background='#282828',
