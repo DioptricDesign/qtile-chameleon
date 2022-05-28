@@ -235,7 +235,6 @@ screens = [
             widget.WindowName(font='Noto Sans Bold'),
             widget.Cmus(play_color=ColorG,
                         noplay_color=ColorB),
-            widget.TextBox(text='', mouse_callbacks = {'Button1':htop}),
             widget.CPU(mouse_callbacks = {'Button1':htop}),
             widget.Memory(format='MEM{MemUsed: .0f}{mm}',
                           mouse_callbacks = {'Button1':htop}),
