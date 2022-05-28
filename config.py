@@ -31,7 +31,7 @@ def sound():
 def calendar():
     qtile.cmd_spawn('urxvtc -e khal interactive')
 def launcher():
-    qtile.cmd_spawn('rofi -show drun -show-icons')
+    qtile.cmd_spawn('rofi -show drun -show-icons -location 7 -yoffset -22')
 def timer():
     qtile.cmd_spawn('timermenu')
 
