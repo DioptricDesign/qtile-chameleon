@@ -232,6 +232,7 @@ screens = [
         bottom=bar.Bar(
         [
             widget.TextBox(text='',
+                           foreground=ColorB,
                            mouse_callbacks = {'Button1':launcher}),
             widget.WindowName(font='Noto Sans Bold'),
             widget.Cmus(play_color=ColorG,
