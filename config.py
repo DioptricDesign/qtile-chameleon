@@ -34,6 +34,8 @@ def launcher():
     qtile.cmd_spawn('rofi -show drun -show-icons -location 7 -yoffset -22')
 def timer():
     qtile.cmd_spawn('timermenu')
+def quake():
+    qtile.cmd_spawn('qtile cmd-obj -o group scratchpad  -f  dropdown_toggle -a term')
 
 #Pywal Colors
 colors = os.path.expanduser('~/.cache/wal/colors.json')
@@ -203,6 +205,9 @@ screens = [
                              this_screen_border=ColorB,
                              this_current_screen_border=ColorC,),
              widget.Spacer(length = bar.STRETCH),
+             widget.TextBox(text='',
+                            foreground=ColorB,
+                            mouse_callbacks = {'Button1':quake}),
              widget.Clock(format='%a %b %d',
                           font='Noto Sans Bold',
                           padding=0,
