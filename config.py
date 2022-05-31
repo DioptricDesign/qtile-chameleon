@@ -27,7 +27,7 @@ def powermenu():
 def weather():
     qtile.cmd_spawn('xdg-open https://openweathermap.org/city/3333147')
 def sound():
-    qtile.cmd_spawn('pavucontrol')
+    qtile.cmd_spawn('outputmenu')
 def calendar():
     qtile.cmd_spawn('urxvtc -e khal interactive')
 def launcher():
