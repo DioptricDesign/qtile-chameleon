@@ -36,6 +36,8 @@ def timer():
     qtile.cmd_spawn('timermenu')
 def quake():
     qtile.cmd_spawn('qtile cmd-obj -o group scratchpad  -f  dropdown_toggle -a term')
+def metamenu():
+    qtile.cmd_spawn('metamenu')
 
 #Pywal Colors
 colors = os.path.expanduser('~/.cache/wal/colors.json')
@@ -245,7 +247,9 @@ screens = [
             widget.Memory(format='MEM{MemUsed: .0f}{mm}',
                           mouse_callbacks = {'Button1':htop}),
             widget.Systray(),
-            widget.CurrentLayoutIcon(scale=.65),
+            widget.CurrentLayoutIcon(scale=.65),            
+            widget.TextBox(text='',
+                           mouse_callbacks = {'Button1':metamenu})
         ],
             22,
             background='#282828',
