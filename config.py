@@ -134,6 +134,7 @@ keys = [
     Key(["mod1", "control"], "s", lazy.spawn("sensornote")),
     Key(["mod1", "control"], "g", lazy.spawn ("gamesmenu")),
     KeyChord([mod], "space", [
+        Key([], "space", lazy.spawn ("rofi -show drun -show-icons -location 7 -yoffset -22")),
         Key([], "h", lazy.spawn ("hotkey")),
         Key([], "s", lazy.spawn ("scrotmenu")),
         Key([], "l", lazy.spawn ("libmenu")),
