@@ -214,7 +214,7 @@ rm -rf "$qtchdl"
 
 #Adjust CSS to user
 echo Adjusting Style Sheet
-sed -i "s/user/${USER}/" "$startdir/min.css"
+sed -i "s/placeholder/${USER}/" "$startdir/min.css"
 
 #Adjusting Qute Browser Config
 echo Adjusting Start Page
