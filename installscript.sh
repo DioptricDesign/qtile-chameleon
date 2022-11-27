@@ -214,11 +214,11 @@ rm -rf "$qtchdl"
 
 #Adjust CSS to user
 echo Adjusting Style Sheet
-sed -i "s/placeholder/${USER}/" "$startdir/min.css"
+sed -i "s/user/${USER}/" "$startdir/min.css"
 
 #Adjusting Qute Browser Config
-echo Adjusting Start Page
-sed -i "s/user/${USER}/" "$qutedir/config.py"
+echo Adjusting Qutebrowser
+sed -i "s/placeholder/${USER}/" "$qutedir/config.py"
 
 #Adjust Clipmenu for Rofi
 echo changing CM_LAUNCHER to rofi
