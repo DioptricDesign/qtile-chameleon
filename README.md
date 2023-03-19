@@ -1,6 +1,6 @@
 # qtile-chameleon
 ![qtile-chameleon](https://github.com/DioptricDesign/qtile-chameleon/blob/master/screens/qtilechameleon1.png)\
-A colorful, dynamic [Qtile](https://github.com/qtile/qtile) configuration that uses [pywal](https://github.com/dylanaraps/pywal). 
+A colorful, dynamic [Qtile](https://github.com/qtile/qtile) configuration that uses [pywal](https://github.com/dylanaraps/pywal) to adapt to your wallpaper. 
 ## More Information
 For more information about this project check out the blog post,
 [Qtile Chameleon Q&A](https://www.dioptricdesign.com/2022/03/23/qtile-chameleon-qa/).
@@ -11,7 +11,10 @@ For more information about this project check out the blog post,
 [dot-files](https://github.com/DioptricDesign/dot-files)\
 [start page](https://github.com/DioptricDesign/min-startpage)<br> 
 ## Automatic Install
-A deployment script for Debian based systems. It Installs everything you need to use Qtile Chameleon.\
+A command line deployment script for Arch and Debian based GNU/Linux systems. Automatically installs everything you need to use Qtile Chameleon.
+### Arch 
+`$ curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript-arch.sh && sh installscript-arch.sh`
+### Debian
 `$ curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh && sh installscript.sh`
 ## Screenshots
 ![qtile config](screens/screens.gif)
