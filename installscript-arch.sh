@@ -52,8 +52,8 @@ sudo pacman -S --needed git qtile python-pywal python-psutil polkit-gnome noto-f
 #Install Extra Software
 
 echo Installing desktop software
-sudo pacman -S --needed qutebrowser liferea cmus emacs gpodder thunderbird vlc pcmanfm hexchat keepassxc
-pip3 install adblock
+sudo pacman -S --needed qutebrowser liferea cmus emacs gpodder thunderbird vlc pcmanfm hexchat keepassxc python-adblock
+
 
 echo -n "Do you want to install graphic design software (y/N)?"
 read answer
