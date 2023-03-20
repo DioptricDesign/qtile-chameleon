@@ -11,11 +11,9 @@ For more information about this project check out the blog post,
 [dot-files](https://github.com/DioptricDesign/dot-files)\
 [start page](https://github.com/DioptricDesign/min-startpage)<br> 
 ## Automatic Install
-A command line deployment script for Arch and Debian based GNU/Linux systems. Automatically installs everything you need to use Qtile Chameleon.
+A command line deployment script for Arch based GNU/Linux systems. Automatically installs everything you need to use Qtile Chameleon.
 ### Arch 
 `$ curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript-arch.sh && sh installscript-arch.sh`
-### Debian
-`$ curl -LO https://raw.githubusercontent.com/DioptricDesign/qtile-chameleon/master/installscript.sh && sh installscript.sh`
 ## Screenshots
 ![qtile config](screens/screens.gif)
 ## Special Thanks
