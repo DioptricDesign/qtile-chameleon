@@ -106,7 +106,7 @@ if test "$answer" != "Y" -a "$answer" != "y";
 then
     echo Skipping game design software...
 else
-    sudo pacman -S --needed godot3 blender krita
+    sudo pacman -S --needed godot blender krita
 fi
 
 echo -n "Do you want to install Open Broadcaster Software (y/N)?"
