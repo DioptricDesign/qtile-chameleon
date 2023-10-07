@@ -21,23 +21,23 @@ def autorestart():
     home = os.path.expanduser('~/.config/qtile/autorestart.sh')
     subprocess.call([home])
 def htop():
-    qtile.cmd_spawn('urxvtc -e htop')
+    qtile.spawn('urxvtc -e htop')
 def powermenu():
-    qtile.cmd_spawn('powermenu')
+    qtile.spawn('powermenu')
 def weather():
-    qtile.cmd_spawn('xdg-open https://openweathermap.org/city/3333147')
+    qtile.spawn('xdg-open https://openweathermap.org/city/3333147')
 def sound():
-    qtile.cmd_spawn('outputmenu')
+    qtile.spawn('outputmenu')
 def calendar():
-    qtile.cmd_spawn('urxvtc -e khal interactive')
+    qtile.spawn('urxvtc -e khal interactive')
 def launcher():
-    qtile.cmd_spawn('rofi -show drun -show-icons -location 7 -yoffset -22')
+    qtile.spawn('rofi -show drun -show-icons -location 7 -yoffset -22')
 def timer():
-    qtile.cmd_spawn('timermenu')
+    qtile.spawn('timermenu')
 def quake():
-    qtile.cmd_spawn('qtile cmd-obj -o group scratchpad  -f  dropdown_toggle -a term')
+    qtile.spawn('qtile cmd-obj -o group scratchpad  -f  dropdown_toggle -a term')
 def metamenu():
-    qtile.cmd_spawn('metamenu')
+    qtile.spawn('metamenu')
 
 #Pywal Colors
 colors = os.path.expanduser('~/.cache/wal/colors.json')
@@ -228,7 +228,7 @@ screens = [
                                mouse_callbacks = {'Button1':weather}),
              widget.TextBox(text='',
                             mouse_callbacks = {'Button1':sound}),
-             widget.PulseVolume(),
+             widget.Volume(),
              widget.TextBox(mouse_callbacks = {'Button1':powermenu},
                             text='',),
              widget.Spacer(length=5)
