@@ -28,6 +28,8 @@ def weather():
     qtile.spawn('xdg-open https://openweathermap.org/city/3333147')
 def sound():
     qtile.spawn('outputmenu')
+def mute():
+    qtile.spawn('amixer -D pulse set Master toggle')
 def calendar():
     qtile.spawn('urxvtc -e khal interactive')
 def launcher():
@@ -228,7 +230,8 @@ screens = [
                                mouse_callbacks = {'Button1':weather}),
              widget.TextBox(text='',
                             mouse_callbacks = {'Button1':sound}),
-             widget.Volume(),
+             widget.Volume(),(foreground=ColorG,
+                              mouse_callbacks = {'Button1':mute}),
              widget.TextBox(mouse_callbacks = {'Button1':powermenu},
                             text='',),
              widget.Spacer(length=5)
