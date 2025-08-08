@@ -251,7 +251,7 @@ screens = [
             widget.Memory(format='MEM{MemUsed: .0f}{mm}',
                           mouse_callbacks = {'Button1':htop}),
             widget.Systray(),
-            widget.CurrentLayoutIcon(scale=.65),            
+            widget.CurrentLayout(scale=.65),            
             widget.TextBox(text='',
                            mouse_callbacks = {'Button1':metamenu})
         ],
